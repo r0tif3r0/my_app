@@ -1,0 +1,6 @@
+.container
+  %h3 Выберите тему:
+  - @themes.each do |theme|
+    = button_to theme.name, display_theme_path(theme_id: theme.id), 
+      method: :post, 
+      class: 'btn btn-outline-primary mb-2'

@@ -1,0 +1,27 @@
+.container
+  .theme-select-form
+    = form_tag display_theme_path, method: :post do
+      .select-wrapper
+        = select_tag :theme_id, 
+          options_from_collection_for_select(Theme.all, :id, :name),
+          prompt: 'Выберите тему'
+        = submit_tag 'Показать', class: 'load-theme-button'
+
+  - if @image
+    .image-card
+      = image_tag "pictures/#{@image.file}", class: 'main-image'
+      
+      .navigation-buttons
+        - if @prev_image
+          = link_to '←', show_image_path(@prev_image), class: 'btn-navigation'
+        - else
+          = button_tag '←', class: 'btn-navigation', disabled: true
+        
+        - if @next_image
+          = link_to '→', show_image_path(@next_image), class: 'btn-navigation'
+        - else
+          = button_tag '→', class: 'btn-navigation', disabled: true
+      
+      .image-caption= @image.name
+  - else
+    .alert Выберите тему из списка выше

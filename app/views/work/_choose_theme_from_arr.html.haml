@@ -1,0 +1,11 @@
+.modal.fade#themeModal
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %h4 Выберите тему
+      .modal-body
+        = form_tag display_theme_path, remote: true do
+          = select_tag :theme, 
+            options_from_collection_for_select(Theme.all, :name, :name),
+            class: 'form-control',
+            prompt: 'Выберите тему'

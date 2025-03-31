@@ -1,0 +1,22 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @image.name
+%p
+  %b File:
+  = @image.file
+%p
+  %b Ave value:
+  = @image.ave_value
+%p
+  %b Theme:
+  = @image.theme_id
+%p
+  %strong Изображение:
+  %br
+  = image_tag "pictures/#{@image.file}", alt: @image.name
+
+= link_to 'Edit', edit_image_path(@image)
+\|
+= link_to 'Back', images_path

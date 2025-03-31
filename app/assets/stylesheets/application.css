@@ -8,6 +8,7 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
  .main-page {
    max-width: 800px;
    margin: 2rem auto;
@@ -59,3 +60,166 @@
  .main-page ul li a:hover::before {
    opacity: 1;
  }
+
+
+
+/* Базовые сбросы */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+/* Убираем подчеркивания у всех кнопок-ссылок */
+.btn-navigation {
+  text-decoration: none !important;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Основной контейнер */
+.container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* Форма выбора темы */
+.theme-select-form {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.select-wrapper {
+  display: inline-flex;
+  gap: 1rem;
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+select {
+  padding: 0.8rem 1.5rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  background: white;
+  transition: border-color 0.3s ease;
+}
+
+select:hover {
+  cursor: pointer;
+}
+
+select:focus {
+  outline: none;
+  border-color: #4d90fe;
+}
+
+.load-theme-button {
+  padding: 0.8rem 2rem;
+  background: #4d90fe;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.load-theme-button:hover {
+  background: #357abd;
+}
+
+/* Блок с изображением */
+.image-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.main-image {
+  width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  border-radius: 8px;
+  margin: 1rem 0;
+  border: 2px solid #f0f0f0;
+}
+
+/* Навигационные кнопки */
+.navigation-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.btn-navigation {
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background: #4d90fe;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-navigation:disabled {
+  background: #e0e0e0;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.btn-navigation:not(:disabled):hover {
+  background: #357abd;
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Подпись изображения */
+.image-caption {
+  text-align: center;
+  color: #666;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 2px solid #f0f0f0;
+}
+
+/* Сообщение об отсутствии изображений */
+.alert {
+  text-align: center;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  color: #666;
+  font-size: 1.1rem;
+  margin-top: 2rem;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .select-wrapper {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  select, button[type="submit"] {
+    width: 100%;
+  }
+  
+  .main-image {
+    max-height: 60vh;
+  }
+}
