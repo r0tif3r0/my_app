@@ -1,15 +1,11 @@
-%p#notice= notice
+.show_user
+  .row
+    %aside.span4
+      %section
+        %h1
+          = gravatar_for @user
+          = @user.name
 
-%p
-  %b Name:
-  = @user.name
-%p
-  %b Email:
-  = @user.email
-%p
-  %b Password digest:
-  = @user.password_digest
-
-= link_to 'Edit', edit_user_path(@user)
-\|
-= link_to 'Back', users_path
+    %p
+      %b= t('.email')
+      = @user.email

@@ -1,6 +1,14 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+//= require rails-ujs
+//= require turbolinks
+
+document.querySelectorAll('.dropdown').forEach(item => {
+  item.addEventListener('click', function(e) {
+    this.classList.toggle('open');
+  });
+});
 
 document.addEventListener('DOMContentLoaded', function() {
 

@@ -28,4 +28,25 @@
 #       enabled: "ON"
 
 en:
-  hello: "Hello world"
+  users:
+    form:
+      create_account: "Create Account"
+      name: "Name"
+      email: "Email"
+      password: "Password"
+      password_confirmation: "Password Confirmation"
+  shared:
+    header:
+      home: "Home"
+      help: "Help"
+      person: "Profile"
+      sign_out: "Sign Out"
+      sign_in: "Sign In"
+  sessions:
+    new:
+      sign_in: "Sign In"
+      email: "Email"
+      password: "Password"
+      remember_me: "Remember me"
+      sign_up: "Sign Up"
+    invalid_credentials: "Incorrect email or password"

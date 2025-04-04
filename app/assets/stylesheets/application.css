@@ -9,57 +9,6 @@
  * Consider organizing styles into separate files for maintainability.
  */
 
- .main-page {
-   max-width: 800px;
-   margin: 2rem auto;
-   padding: 20px;
- }
- .main-page h1 {
-   font-size: 2.5rem;
-   color: #2c3e50;
-   text-align: center;
-   margin-bottom: 2rem;
-   padding-bottom: 1rem;
-   border-bottom: 2px solid #3498db;
- }
- .main-page ul {
-   list-style: none;
-   padding: 0;
-   margin: 0;
-   display: flex;
-   flex-direction: column;
-   gap: 1rem;
- }
- .main-page ul li {
-   background: #f8f9fa;
-   border-radius: 8px;
-   transition: transform 0.2s ease;
- }
- .main-page ul li:hover {
-   transform: translateX(10px);
- }
- .main-page ul li a {
-   display: block;
-   padding: 1rem 1.5rem;
-   text-decoration: none;
-   color: #2c3e50;
-   font-weight: 500;
-   position: relative;
- }
- .main-page ul li a::before {
-   content: "→";
-   position: absolute;
-   left: -1.5rem;
-   opacity: 0;
-   transition: opacity 0.2s ease;
- }
- .main-page ul li a:hover {
-   color: #3498db;
-   background: #e9ecef;
- }
- .main-page ul li a:hover::before {
-   opacity: 1;
- }
 
 
 
@@ -78,10 +27,18 @@ a {
   text-decoration: none;
   color: inherit;
 }
+/* Убираем маркеры */
+li {
+  list-style-type: none;
+}
 
 /* Основной контейнер */
+html, body {
+  height: 100%;
+  width: 100%;
+}
 .container {
-  max-width: 1200px;
+  height: calc(100% - 53px - 32px);
   margin: 2rem auto;
   padding: 0 1rem;
 }
@@ -160,7 +117,7 @@ select:focus {
   margin-top: 2rem;
 }
 
-.btn-navigation {
+.btn-nav {
   width: 50px;
   height: 50px;
   border: none;
@@ -175,13 +132,13 @@ select:focus {
   justify-content: center;
 }
 
-.btn-navigation:disabled {
+.btn-nav:disabled {
   background: #e0e0e0;
   cursor: not-allowed;
   opacity: 0.7;
 }
 
-.btn-navigation:not(:disabled):hover {
+.btn-nav:not(:disabled):hover {
   background: #357abd;
   transform: scale(1.1);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -288,5 +245,396 @@ select:focus {
   
   .main-image {
     max-height: 60vh;
+  }
+}
+
+/* Шапка */
+
+/* Navbar container */
+nav {
+  background: #2c3e50;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Navigation list */
+.nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Navigation items */
+.nav li {
+  position: relative;
+}
+
+/* Links styling */
+.nav a {
+  color: #ecf0f1;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+.nav a:hover {
+  background: #34495e;
+  transform: translateY(-2px);
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background: #34495e;
+  min-width: 200px;
+  padding: 0.5rem 0;
+  border-radius: 4px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.dropdown-menu li {
+  padding: 0;
+}
+
+.dropdown-menu a, .dropdown-menu form {
+  display: block;
+  padding: 0.8rem 1.5rem;
+  color: #ecf0f1;
+}
+
+.dropdown-menu a:hover, .dropdown-menu form:hover {
+  background: #2c3e50;
+  cursor: pointer;
+}
+
+.logout-link {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+  font: inherit;
+  color: rgb(218, 72, 72);
+}
+
+/* Divider */
+.divider {
+  height: 1px;
+  background: #46627f;
+  margin: 0.5rem 0;
+}
+
+/* Gravatar */
+.gravatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-left: 1rem;
+  border: 2px solid #ecf0f1;
+  transition: transform 0.3s ease;
+}
+
+.gravatar:hover {
+  transform: scale(1.1);
+}
+
+/* User email */
+.logged {
+  color: #bdc3c7;
+  font-size: 0.9em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  nav {
+    padding: 1rem;
+  }
+  
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .dropdown-menu {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    background: transparent;
+  }
+  
+  .gravatar {
+    margin-left: 0;
+  }
+}
+
+/* Caret icon */
+.caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 0.3em;
+  vertical-align: middle;
+  border-top: 4px solid;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+}
+
+
+/* Главная страница */
+
+.jumbotron {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.jumbotron h1 {
+  font-size: 3.5rem;
+  margin-bottom: 2rem;
+  color: #2c3e50;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  line-height: 1.2;
+}
+
+.jumbotron .btn {
+  font-size: 1.5rem;
+  padding: 1.2rem 3rem;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  border: none;
+}
+
+.jumbotron .btn-primary {
+  background: #3498db;
+  background: linear-gradient(to right, #3498db, #2980b9);
+  color: white;
+}
+
+.jumbotron .btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 20px rgba(52,152,219,0.3);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .jumbotron h1 {
+    font-size: 2.5rem;
+  }
+  
+  .jumbotron .btn {
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .jumbotron h1 {
+    font-size: 2rem;
+  }
+  
+  .jumbotron {
+    padding: 1rem;
+  }
+}
+
+/* Форма регистрации */
+/* Форма регистрации */
+.auth-form {
+  max-width: 480px;
+  margin: 2rem auto;
+  padding: 2.5rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.form-header h2 {
+  font-size: 2.2rem;
+  color: #2c3e50;
+  margin: 0 0 1rem;
+}
+
+/* Группы полей */
+.form-group {
+  margin-bottom: 1.8rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-weight: 500;
+  color: #34495e;
+}
+
+.form-input {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52,152,219,0.2);
+  outline: none;
+}
+
+/* Ошибки */
+.error-box {
+  background: #fee;
+  border: 2px solid #ff3860;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.error-title {
+  color: #ff3860;
+  font-size: 1.1rem;
+  margin: 0 0 1rem;
+}
+
+.error-list {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.error-item {
+  color: #ff3860;
+  margin-bottom: 0.5rem;
+}
+
+/* Кнопка */
+.form-submit-btn {
+  width: 100%;
+  padding: 1.2rem;
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.form-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(52,152,219,0.3);
+}
+
+.form-title {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+}
+
+.back-link {
+  display: block;
+  text-align: center;
+  margin-top: 2rem;
+  color: #3498db;
+  text-decoration: none;
+  transition: opacity 0.3s;
+
+  &:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+  }
+}
+
+/* Адаптивность */
+@media (max-width: 576px) {
+  .auth-form {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .form-header h2 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Общие стили для форм аутентификации */
+.auth-form {
+  max-width: 480px;
+  margin: 2rem auto;
+  padding: 2.5rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+}
+
+/* Специфичные стили для формы входа */
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 1.5rem 0;
+
+  input[type="checkbox"] {
+    width: 1.2rem;
+    height: 1.2rem;
+    accent-color: #3498db;
+  }
+}
+
+.auth-links {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: center;
+
+  a {
+    color: #3498db;
+    text-decoration: none;
+    transition: opacity 0.3s;
+
+    &:hover {
+      opacity: 0.8;
+      text-decoration: underline;
+    }
   }
 }

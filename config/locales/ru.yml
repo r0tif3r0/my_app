@@ -1,0 +1,26 @@
+ru:
+  home: "Главная"
+  help: "Помощь"
+  sign_in: "Войти"
+  sign_out: "Выйти"
+  person: "Личный кабинет"
+  profile: "Профиль"
+  settings: "Настройки"
+  users:
+    form:
+      create_account: "Создать аккаунт"
+      name: "Имя"
+      email: "Электронная почта"
+      password: "Пароль"
+      password_confirmation: "Подтверждение пароля"
+      errors_prohibited: "Форма содержит %{count} ошибку"
+      errors_prohibited_plural: "Форма содержит %{count} ошибок"
+  sessions:
+    new:
+      sign_in: "Вход в систему"
+      email: "Электронная почта"
+      password: "Пароль"
+      remember_me: "Запомнить меня"
+      forgot_password: "Забыли пароль?"
+      sign_up: "Регистрация"
+    invalid_credentials: "Неверный email или пароль"
