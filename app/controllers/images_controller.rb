@@ -8,6 +8,14 @@ class ImagesController < ApplicationController
 
   # GET /images/1 or /images/1.json
   def show
+    image = Image.find(params[:id])
+
+    if image.present?
+      send_file Rails.root.join("app/assets/images", image.file_url),
+                type: "image/jpeg", disposition: "attachment"
+    else
+      render plain: "Image not found", status: :not_found
+    end
   end
 
   # GET /images/new

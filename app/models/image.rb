@@ -8,4 +8,8 @@ class Image < ApplicationRecord
   def prev_image
     Image.where("id < ? AND theme_id = ?", id, theme_id).last
   end
+
+  def file_url
+    "pictures/#{file}"
+  end
 end

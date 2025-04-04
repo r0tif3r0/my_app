@@ -7,21 +7,32 @@
           prompt: 'Выберите тему'
         = submit_tag 'Показать', class: 'load-theme-button'
 
-  - if @image
+  - if @theme && @image
+    = hidden_field_tag :theme_id, @theme.id, id: 'theme_id'
+    = hidden_field_tag :current_index, @image.id, id: 'current_index'
+
     .image-card
-      = image_tag "pictures/#{@image.file}", class: 'main-image'
-      
+      = image_tag @image.file_url, class: 'main-image'
+
       .navigation-buttons
-        - if @prev_image
-          = link_to '←', show_image_path(@prev_image), class: 'btn-navigation'
-        - else
-          = button_tag '←', class: 'btn-navigation', disabled: true
-        
-        - if @next_image
-          = link_to '→', show_image_path(@next_image), class: 'btn-navigation'
-        - else
-          = button_tag '→', class: 'btn-navigation', disabled: true
+        %button.btn.btn-prev ←
+        %button.btn.btn-next →
       
+      .rating-controls
+        .slider-container
+          %input.rating-slider{
+            type: "range",
+            min: "1",
+            max: "10",
+            value: "1",
+            step: "1"
+          }
+          .slider-labels
+            - (1..10).each do |num|
+              %span= num
+        
+        = button_tag 'Оценить', class: 'rate-button'
+
       .image-caption= @image.name
   - else
     .alert Выберите тему из списка выше

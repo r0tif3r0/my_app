@@ -1,7 +1,0 @@
-// Обновление интерфейса
-$('.up-theme').text('<%= j @image_data[:theme] %>');
-$('.up').text('<%= j @image_data[:name] %>');
-$('.img-center img').attr('src', '<%= image_path("pictures/#{@image_data[:file]}") %>');
-
-// Показ элементов управления
-$('.img-left-side, .img-right-side').show();
