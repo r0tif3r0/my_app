@@ -28,13 +28,6 @@
 #       enabled: "ON"
 
 en:
-  users:
-    form:
-      create_account: "Create Account"
-      name: "Name"
-      email: "Email"
-      password: "Password"
-      password_confirmation: "Password Confirmation"
   shared:
     header:
       home: "Home"
@@ -42,6 +35,19 @@ en:
       person: "Profile"
       sign_out: "Sign Out"
       sign_in: "Sign In"
+  language_name: "English"
+  main:
+    index:
+      title: "Welcome to the Experteese"
+      work_button: "Proceed to work"
+      create_account_button: "Signup now"
+  users:
+    form:
+      create_account: "Create Account"
+      name: "Name"
+      email: "Email"
+      password: "Password"
+      password_confirmation: "Password Confirmation"
   sessions:
     new:
       sign_in: "Sign In"
@@ -50,3 +56,9 @@ en:
       remember_me: "Remember me"
       sign_up: "Sign Up"
     invalid_credentials: "Incorrect email or password"
+  work:
+    index:
+      prompt_info: "Choose a theme"
+      submit_tag: "Show"
+      non_theme_alert: "Select a theme from the list above"
+      rate-button: "Rate"

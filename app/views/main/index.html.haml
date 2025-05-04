@@ -1,7 +1,8 @@
 .center.jumbotron
-  %h1 Welcome to the Experteese
+  %h1
+    = t('.title')
 
   - if signed_in?
-    = link_to "Proceed to work!", work_path, class: "btn btn-lg btn-primary"
+    = link_to t('.work_button'), work_path, class: "btn btn-lg btn-primary"
   - else
-    = link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary"
+    = link_to t('.create_account_button'), signup_path, class: "btn btn-lg btn-primary"

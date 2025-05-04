@@ -1,10 +1,10 @@
-efault: &default
+default: &default
   adapter: postgresql
   encoding: unicode
   host: localhost
   port: 5432
   username: my_app_user
-  password: <%= Rails.application.credentials.dig(:database, :password) %>
+  password: qwerty
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:

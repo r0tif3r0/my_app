@@ -169,14 +169,23 @@ select:focus {
 .rating-controls {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  width: 100%;
   margin-top: 2rem;
   padding: 1rem;
   background: #f8f9fa;
   border-radius: 12px;
 }
 
+.rating-controls form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
 .slider-container {
+  width: 100%;
+  margin-bottom: 10px;
   flex-grow: 1;
 }
 
@@ -216,6 +225,7 @@ select:focus {
 }
 
 .rate-button {
+  width: 30%;
   padding: 0.8rem 2rem;
   background: #4a90e2;
   color: white;
@@ -637,4 +647,75 @@ nav {
       text-decoration: underline;
     }
   }
+}
+
+.show_user {
+  padding: 20px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.user-info {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.rated-title {
+  color: #2c3e50;
+  margin-bottom: 25px;
+}
+
+.ratings-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.ratings-table th {
+  background: #3498db;
+  color: white;
+  padding: 15px;
+  text-align: left;
+}
+
+.ratings-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.ratings-table tr:hover {
+  background-color: #f8f9fa;
+}
+
+.rating, .user-rating {
+  text-align: center;
+  font-weight: bold;
+  color: #27ae60;
+}
+
+.actions {
+  text-align: center;
+}
+
+.btn {
+  padding: 5px 10px;
+  border-radius: 4px;
+  text-decoration: none;
+  background: #3498db;
+  color: white !important;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #2980b9;
+}
+
+.no-ratings {
+  text-align: center;
+  padding: 40px;
+  color: #7f8c8d;
 }

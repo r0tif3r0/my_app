@@ -4,8 +4,8 @@
       .select-wrapper
         = select_tag :theme_id, 
           options_from_collection_for_select(Theme.all, :id, :name),
-          prompt: 'Выберите тему'
-        = submit_tag 'Показать', class: 'load-theme-button'
+          prompt: t('.prompt_info')
+        = submit_tag t('.submit_tag'), class: 'load-theme-button'
 
   - if @theme && @image
     = hidden_field_tag :theme_id, @theme.id, id: 'theme_id'
@@ -19,20 +19,32 @@
         %button.btn.btn-nav.btn-next →
       
       .rating-controls
-        .slider-container
-          %input.rating-slider{
-            type: "range",
-            min: "1",
-            max: "10",
-            value: "1",
-            step: "1"
-          }
-          .slider-labels
-            - (1..10).each do |num|
-              %span= num
-        
-        = button_tag 'Оценить', class: 'rate-button'
+        - if current_user && current_user.values.exists?(image_id: @image.id)
+          .rated-info
+            %p= t('.already_rated')
+            %p= "#{t('.your_rating')}: #{current_user.values.find_by(image_id: @image.id)&.value}"
+            %p= "#{t('.ave_rating')}: #{@image.ave_value}"
+        - else
+          = form_tag create_value_path, method: :post do
+            = hidden_field_tag :image_id, @image.id
+            = hidden_field_tag :theme_id, @theme.id
+
+            .slider-container
+              %input.rating-slider{
+                type: "range",
+                name: "value",
+                min: "1",
+                max: "10",
+                value: "1",
+                step: "1"
+              }
+              .slider-labels
+                - (1..10).each do |num|
+                  %span= num
+            
+            = button_tag t('.rate_button'), class: 'rate-button', type: 'submit'
 
       .image-caption= @image.name
   - else
-    .alert Выберите тему из списка выше
+    .alert 
+      = t('.non_theme_alert')

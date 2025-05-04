@@ -1,34 +1,34 @@
 Rails.application.routes.draw do
-  root "main#index"
+  scope "(:locale)", locale: /en|ru/ do
+    root "main#index"
 
-  # Маршруты для пользователей
-  resources :users, only: [ :show, :new, :create ]
-  get "/signup", to: "users#new", as: :signup  # Добавляем этот маршрут
-  get "/help", to: "main#help", as: :help
+    # Users
+    resources :users, only: [:show, :new, :create]
+    get "/signup", to: "users#new", as: :signup
+    get "/help", to: "main#help", as: :help
 
-  # Маршруты для сессий
-  resources :sessions, only: [ :new, :create, :destroy ]
-  get "/signin", to: "sessions#new", as: :signin
-  post "/signin",  to: "sessions#create"
-  delete "/signout", to: "sessions#destroy", as: :signout
-  # get "/signout", to: "sessions#destroy" # Временно!
+    # Sessions
+    resources :sessions, only: [:new, :create, :destroy]
+    get "/signin", to: "sessions#new", as: :signin
+    delete "/signout", to: "sessions#destroy", as: :signout
 
-  # Остальные ресурсы
-  resources :themes, :values, :images
+    # Resources
+    resources :themes, :images
+    post '/values', to: 'values#create', as: 'create_value'  # Явное определение
 
-  # WorkController
-  get "work", to: "work#index"
-  post "display_theme", to: "work#display_theme"
-  get "image/:image_id", to: "work#show_image", as: :show_image
+    # Work
+    get "work", to: "work#index"
+    post "display_theme", to: "work#display_theme"
+    get "image/:image_id", to: "work#show_image", as: :show_image
 
-  # API
-  namespace :api do
-    get "next_image", to: "api#next_image"
-    get "prev_image", to: "api#prev_image"
+    # API
+    namespace :api do
+      get "next_image", to: "api#next_image"
+      get "prev_image", to: "api#prev_image"
+    end
+
+    # Main
+    get "contacts", to: "main#contacts"
+    get "about", to: "main#about"
   end
-
-  # MainController
-  get "help", to: "main#help"
-  get "contacts", to: "main#contacts"
-  get "about", to: "main#about"
 end

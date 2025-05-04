@@ -1,5 +1,12 @@
 %nav
   %ul.nav.navbar-nav.pull-right
+    %li.dropdown
+      %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+        = t('language_name')
+        %b.caret
+      %ul.dropdown-menu
+        - I18n.available_locales.each do |locale|
+          %li= link_to t('language_name', locale: locale), url_for(locale: locale, **request.query_parameters)
     %li= link_to t('.home'), root_path
     %li= link_to t('.help'), help_path
     - if signed_in?

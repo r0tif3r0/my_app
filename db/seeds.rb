@@ -38,11 +38,3 @@ Image.create([
   { name: 'Ford Mondeo', file: 'ford_mondeo.jpg', theme_id: 3 },
   { name: 'Ford Ranger', file: 'ford_ranger.jpg', theme_id: 3 }
 ])
-
-# Тестовый пользователь
-User.create(
-  name: "Иван Петров",
-  email: "test@example.com",
-  password: "password123",
-  password_confirmation: "password123"
-)

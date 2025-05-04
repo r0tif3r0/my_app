@@ -1,18 +1,27 @@
 ru:
-  home: "Главная"
-  help: "Помощь"
-  sign_in: "Войти"
-  sign_out: "Выйти"
-  person: "Личный кабинет"
-  profile: "Профиль"
-  settings: "Настройки"
+  shared:
+    header:
+      home: "Главная"
+      help: "Помощь"
+      sign_in: "Войти"
+      sign_out: "Выйти"
+      person: "Личный кабинет"
+      profile: "Профиль"
+      settings: "Настройки"
+  language_name: "Русский"
+  main:
+    index:
+      title: "Добро пожаловать в Experteese"
+      work_button: "Приступить к работе"
+      create_account_button: "Зарегистрироваться"
   users:
     form:
-      create_account: "Создать аккаунт"
+      create_account: "Регистрация"
       name: "Имя"
       email: "Электронная почта"
       password: "Пароль"
       password_confirmation: "Подтверждение пароля"
+      create_account_button: "Создать аккаунт"
       errors_prohibited: "Форма содержит %{count} ошибку"
       errors_prohibited_plural: "Форма содержит %{count} ошибок"
   sessions:
@@ -24,3 +33,25 @@ ru:
       forgot_password: "Забыли пароль?"
       sign_up: "Регистрация"
     invalid_credentials: "Неверный email или пароль"
+  work:
+    index:
+      prompt_info: "Выберите тему"
+      submit_tag: "Показать"
+      non_theme_alert: "Выберите тему из списка выше"
+      rate_button: "Оценить"
+      already_rated: "Вы уже оценили это изображение"
+      your_rating: "Ваша оценка"
+      ave_rating: "Средняя оценка"
+  activerecord:
+    attributes:
+      image:
+        name: Название
+        ave_value: Средний рейтинг
+        theme: Тема
+  actions: Действия
+  show: Просмотр
+  users:
+    show:
+      user_rating: Ваша оценка
+      rated_images: Оцененные изображения
+      no_ratings_yet: Пользователь еще не оценил ни одного изображения

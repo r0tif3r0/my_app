@@ -1,11 +1,37 @@
 .show_user
   .row
     %aside.span4
-      %section
-        %h1
+      %section.user-info
+        %h1.user-name
           = gravatar_for @user
           = @user.name
+        %p.user-email
+          %b= t('.email')
+          = @user.email
 
-    %p
-      %b= t('.email')
-      = @user.email
+    .user-ratings.span8
+      %h2.rated-title= t('.rated_images')
+      
+      - if @user.values.exists?
+        %table.ratings-table
+          %thead
+            %tr
+              %th= t('activerecord.attributes.image.name')
+              %th.rating= t('activerecord.attributes.image.ave_value')
+              %th= t('activerecord.attributes.image.theme')
+              %th.user-rating= t('.user_rating')
+              %th.actions= t('actions')
+          
+          %tbody
+            - @user.values.includes(:image).each do |value|
+              - image = value.image
+              %tr
+                %td= image.name
+                %td.rating= "★ #{image.ave_value.round(2)}"
+                %td= image.theme.name
+                %td.user-rating= value.value
+                %td.actions
+                  = link_to t('show'), "/image/#{image.id}", class: 'btn btn-small'
+      - else
+        .no-ratings
+          %p= t('.no_ratings_yet')
